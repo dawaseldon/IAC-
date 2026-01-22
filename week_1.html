@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Week 1 – Internship Documentation</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth; /* smooth scrolling for internal anchors */
+    }
+  </style>
 </head>
 <body>
 
@@ -18,6 +23,15 @@
         <li><a href="week_3.html">Week 3</a></li>
         <li><a href="week_4.html">Week 4</a></li>
       </ul>
+      <h3>Sections</h3>
+      <ul class="timeline">
+        <li><a href="#overview" class="section-link">Overview</a></li>
+        <li><a href="#focus" class="section-link">Focus</a></li>
+        <li><a href="#tasks" class="section-link">Tasks</a></li>
+        <li><a href="#skills" class="section-link">Skills</a></li>
+        <li><a href="#challenges" class="section-link">Challenges</a></li>
+        <li><a href="#reflection" class="section-link">Reflection</a></li>
+      </ul>
     </aside>
 
     <!-- ===== Main Content ===== -->
@@ -31,15 +45,15 @@
           building a domain-specific chatbot.
         </p>
         <div class="nav">
-          <a href="index.html">← Back to Home</a>
+          <a href="index.html">← Home</a>
         </div>
       </header>
 
-      <section>
+      <section id="overview">
         <h2>Overview of Week 1</h2>
       </section>
 
-      <section>
+      <section id="focus">
         <h2>Focus of the Week</h2>
         <p>
           The primary goal was <strong>conceptual and technical learning</strong> in
@@ -51,7 +65,7 @@
 
       <hr>
 
-      <section>
+      <section id="tasks">
         <h2>Tasks Completed</h2>
         <ul>
           <li>
@@ -84,7 +98,7 @@
 
       <hr>
 
-      <section>
+      <section id="skills">
         <h2>Skills Learned / Developed</h2>
         <ul>
           <li>Understanding transformer-based models (encoder-only vs decoder)</li>
@@ -98,7 +112,7 @@
 
       <hr>
 
-      <section>
+      <section id="skill-progress">
         <h2>Skill Progress (Week 1)</h2>
         <div class="skills">
           <div>
@@ -145,7 +159,7 @@
 
       <hr>
 
-      <section>
+      <section id="challenges">
         <h2>Challenges / Solutions</h2>
         <table>
           <thead>
@@ -177,7 +191,7 @@
 
       <hr>
 
-      <section>
+      <section id="reflection">
         <h2>Reflection / Notes</h2>
         <ul>
           <li>Learned differences in model architectures and task suitability</li>
@@ -199,6 +213,28 @@
     </main>
 
   </div>
+
+  <script>
+    // ===== Highlight active section on scroll =====
+    const sections = document.querySelectorAll("section");
+    const sectionLinks = document.querySelectorAll(".section-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      sectionLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

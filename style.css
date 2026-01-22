@@ -16,7 +16,7 @@ body {
 
 /* ===== Container ===== */
 .container {
-  max-width: 1000px; /* a bit wider for better layout */
+  max-width: 1000px; /* wider for better layout */
   margin: auto;
   background: #ffffff;
   padding: 60px;
@@ -27,13 +27,13 @@ body {
 /* ===== Headings ===== */
 h1 {
   font-size: 2.6rem;
-  margin-bottom: 20px; /* extra space so sidebar doesn’t cover */
+  margin-bottom: 30px; /* more space so sidebar doesn’t cover */
   color: #111827;
 }
 
 h2 {
   font-size: 1.5rem;
-  margin: 50px 0 20px; /* more top margin to avoid sidebar overlap */
+  margin: 60px 0 20px; /* top margin to avoid overlap */
   border-left: 4px solid #3b82f6;
   padding-left: 14px;
   color: #111827;
@@ -122,7 +122,7 @@ tbody tr {
 /* ===== Layout with Sidebar ===== */
 .layout {
   display: grid;
-  grid-template-columns: 260px 1fr; /* slightly wider for sidebar */
+  grid-template-columns: 260px 1fr; /* slightly wider sidebar */
   gap: 40px;
 }
 
@@ -131,9 +131,9 @@ tbody tr {
   position: sticky;
   top: 20px; /* distance from top of viewport */
   height: calc(100vh - 40px); /* almost full screen height */
-  overflow-y: auto; /* scroll inside sidebar if content too long */
+  overflow-y: auto; /* scroll inside sidebar if too long */
   padding: 25px 20px;
-  background: #f3f4f6; /* subtle separation */
+  background: rgba(243, 244, 246, 0.95); /* subtle, slightly transparent */
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
@@ -228,5 +228,6 @@ tbody tr {
     top: 0;
     overflow: visible;
     margin-bottom: 20px;
+    background: #f3f4f6; /* remove transparency on mobile */
   }
 }

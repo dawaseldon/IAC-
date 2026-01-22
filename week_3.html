@@ -2,43 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Week 3 – Internship Documentation</title>
+  <title>Week X – Internship Documentation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container layout">
 
-    <!-- Sidebar Timeline -->
+    <!-- ===== Sidebar ===== -->
     <aside class="sidebar">
       <h3>Internship Timeline</h3>
       <ul class="timeline">
-        <li><a href="week_1.html" class="">Week 1</a></li>
-        <li><a href="week_2.html" class="">Week 2</a></li>
-        <li><a href="week_3.html" class="">Week 3</a></li>
-        <li><a href="week_4.html" class="">Week 4</a></li>
+        <li><a href="week_1.html" class="active-week-1">Week 1</a></li>
+        <li><a href="week_2.html" class="active-week-2">Week 2</a></li>
+        <li><a href="week_3.html" class="active-week-3">Week 3</a></li>
+        <li><a href="week_4.html" class="active-week-4">Week 4</a></li>
       </ul>
     </aside>
 
-    <!-- Main Content -->
+    <!-- ===== Main Content ===== -->
     <main>
       <header>
-        <h1>Week 3: 26/01/2026 – 01/02/2026</h1>
+        <h1>Week X: DD/MM/YYYY – DD/MM/YYYY</h1>
         <p>
-          Brief summary of what this week focused on.
+          Brief summary of the week's focus. Highlight main objectives, learning goals, or experiments conducted.
         </p>
         <div class="nav">
-          <a href="index.html">← Back to Home</a>
+          <a href="index.html">← Home</a>
         </div>
       </header>
 
+      <!-- ===== Sections ===== -->
       <section>
-        <h2>Overview of Week 3</h2>
-        <p>Write the main highlights here.</p>
+        <h2>Overview of Week X</h2>
+        <p>General overview of tasks, experiments, and learning outcomes for this week.</p>
       </section>
 
       <section>
         <h2>Focus of the Week</h2>
-        <p>Describe the main learning goals and technical focus.</p>
+        <p>
+          Explain the main focus: conceptual learning, technical experimentation, or skill development.
+        </p>
       </section>
 
       <hr>
@@ -46,9 +50,10 @@
       <section>
         <h2>Tasks Completed</h2>
         <ul>
-          <li>Task 1</li>
-          <li>Task 2</li>
-          <li>Task 3</li>
+          <li>Task 1 description</li>
+          <li>Task 2 description</li>
+          <li>Task 3 description</li>
+          <!-- Add more tasks as needed -->
         </ul>
       </section>
 
@@ -57,26 +62,28 @@
       <section>
         <h2>Skills Learned / Developed</h2>
         <ul>
-          <li>Skill 1</li>
-          <li>Skill 2</li>
-          <li>Skill 3</li>
+          <li>Skill 1 description</li>
+          <li>Skill 2 description</li>
+          <li>Skill 3 description</li>
+          <!-- Add more skills as needed -->
         </ul>
       </section>
 
       <hr>
 
       <section>
-        <h2>Skill Progress (Week 3)</h2>
+        <h2>Skill Progress (Week X)</h2>
         <div class="skills">
           <div>
             <div class="skill">
               <span>Skill Name</span>
-              <span>Beginner / Intermediate / Advanced</span>
+              <span>Beginner/Intermediate/Advanced</span>
             </div>
             <div class="progress-bar">
               <div class="progress" style="width: 50%;"></div>
             </div>
           </div>
+          <!-- Repeat skill blocks for more skills -->
         </div>
       </section>
 
@@ -96,6 +103,11 @@
               <td>Challenge 1</td>
               <td>Solution 1</td>
             </tr>
+            <tr>
+              <td>Challenge 2</td>
+              <td>Solution 2</td>
+            </tr>
+            <!-- Add more challenges as needed -->
           </tbody>
         </table>
       </section>
@@ -105,15 +117,18 @@
       <section>
         <h2>Reflection / Notes</h2>
         <ul>
-          <li>Reflection 1</li>
-          <li>Reflection 2</li>
-          <li>Reflection 3</li>
+          <li>Reflection point 1</li>
+          <li>Reflection point 2</li>
+          <li>Reflection point 3</li>
+          <!-- Add more reflections as needed -->
         </ul>
       </section>
 
+      <!-- ===== Navigation ===== -->
       <div class="nav">
         <a href="index.html">← Home</a>
-        <a href="week_4.html">Next Week →</a>
+        <a href="week_1.html">← Previous</a>
+        <a href="week_3.html">Next →</a>
       </div>
 
       <footer>
@@ -122,5 +137,21 @@
     </main>
 
   </div>
+
+  <!-- ===== Script to highlight active week ===== -->
+  <script>
+    // Get the current page filename
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Add active class to the current week link
+    document.querySelectorAll('.timeline a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
+
 </body>
 </html>
