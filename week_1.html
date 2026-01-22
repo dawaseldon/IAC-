@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Week 1 – Internship Documentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container layout">
+    <aside class="sidebar">
+  <h3>Internship Timeline</h3>
+  <ul class="timeline">
+    <li><a href="week_1.html" class="active">Week 1</a></li>
+    <li><a href="week_2.html">Week 2</a></li>
+    <li><a href="week_3.html">Week 3</a></li>
+    <li><a href="week_4.html">Week 4</a></li>
+  </ul>
+</aside>
+
+
+    <header>
+      <h1>Week 1: 12/01/2026 – 18/01/2026</h1>
+      <p>
+        This week focused on getting hands-on experience with AI development and
+        Natural Language Processing (NLP).
+        The main goal was to understand transformer-based models, experiment with
+        fine-tuning methods, and explore the technical limitations of building a
+        domain-specific chatbot.
+      </p>
+
+      <div class="nav">
+        <a href="index.html">← Back to Home</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Overview of Week 1</h2>
+    </section>
+
+    <section>
+      <h2>Focus of the Week</h2>
+      <p>
+        The primary goal was <strong>conceptual and technical learning</strong> in
+        AI development, focusing on <strong>Natural Language Processing (NLP)</strong>.
+        The objective was to explore model architectures, fine-tuning approaches,
+        and their limitations, rather than deploying a final product.
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Tasks Completed</h2>
+      <ul>
+        <li>
+          Conducted <strong>sentiment analysis</strong> on movie reviews using DistilBERT:
+          <ul>
+            <li>Sentiment classification</li>
+            <li>Text labeling</li>
+            <li>Feature extraction</li>
+          </ul>
+        </li>
+        <li>Learned that <strong>DistilBERT cannot generate text</strong> due to lack of a decoder.</li>
+        <li>
+          Began work on <strong>Bhutan History chatbot (Yangtshel / BB chatbot)</strong> using:
+          <ul>
+            <li><strong>facebook/opt-1.3b</strong>, capable of natural language generation</li>
+          </ul>
+        </li>
+        <li>Worked with <strong>tokenization pipeline</strong> to process raw text into subword tokens.</li>
+        <li>
+          Explored <strong>Parameter-Efficient Fine-Tuning (PEFT)</strong> with <strong>LoRA</strong>:
+          <ul>
+            <li>Introduces small trainable adapter layers</li>
+            <li>Reduces memory and compute requirements</li>
+          </ul>
+        </li>
+        <li>Built a basic <strong>Gradio interface</strong> to test chatbot responses.</li>
+        <li>Used <strong>Google Colab</strong> for GPU experimentation, learning session limitations.</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Skills Learned / Developed</h2>
+      <ul>
+        <li>Understanding transformer-based models (encoder-only vs decoder)</li>
+        <li>Hands-on experience with <strong>NLP pipelines</strong></li>
+        <li>Practical knowledge of <strong>fine-tuning limitations</strong> and AI hallucinations</li>
+        <li>Parameter-Efficient Fine-Tuning (LoRA) implementation</li>
+        <li>Gradio interface development</li>
+        <li>Responsible AI development: combining models with external knowledge</li>
+      </ul>
+    </section>
+
+    <hr>
+    <section>
+  <h2>Skill Progress (Week 1)</h2>
+
+  <div class="skills">
+    <div>
+      <div class="skill">
+        <span>Natural Language Processing (NLP)</span>
+        <span>Intermediate</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" style="width: 65%;"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill">
+        <span>Transformer Models</span>
+        <span>Intermediate</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" style="width: 60%;"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill">
+        <span>Fine-Tuning (LoRA / PEFT)</span>
+        <span>Beginner–Intermediate</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" style="width: 45%;"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skill">
+        <span>Tools (Colab, Gradio, Hugging Face)</span>
+        <span>Intermediate</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" style="width: 60%;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+    <hr>
+
+    <section>
+      <h2>Challenges / Solutions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Challenge</th>
+            <th>Solution / Learning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DistilBERT cannot generate text</td>
+            <td>Transitioned to OPT-1.3B for text generation tasks</td>
+          </tr>
+          <tr>
+            <td>Limited dataset quality for domain-specific knowledge</td>
+            <td>Noted importance of high-quality, structured datasets for deep model understanding</td>
+          </tr>
+          <tr>
+            <td>Potential model hallucinations</td>
+            <td>Learned that combining models with external knowledge (RAG) reduces inaccuracies</td>
+          </tr>
+          <tr>
+            <td>Colab session limitations</td>
+            <td>Adapted experiments to fit session constraints</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Reflection / Notes</h2>
+      <ul>
+        <li>Learned differences in model architectures and task suitability</li>
+        <li>Understood importance of dataset quality for domain adaptation</li>
+        <li>Hands-on experience with tokenization, model pipelines, and testing</li>
+        <li>Realized fine-tuning alone is insufficient; external knowledge is required for educational AI</li>
+        <li>Next steps: Explore <strong>Retrieval-Augmented Generation (RAG)</strong> for improved factual accuracy</li>
+      </ul>
+    </section>
+
+    <div class="nav">
+      <a href="index.html">← Home</a>
+      <a href="week_2.html">Next: Week 2 →</a>
+    </div>
+
+    <footer>
+      © 2026 Dawa Seldon
+    </footer>
+
+  </div>
+
+</body>
+</html>

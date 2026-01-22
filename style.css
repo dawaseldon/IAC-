@@ -1,0 +1,222 @@
+/* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Global Styling ===== */
+body {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.75;
+  padding: 60px 20px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Headings ===== */
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 45px 0 18px;
+  border-left: 4px solid #3b82f6;
+  padding-left: 14px;
+  color: #111827;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 28px;
+  color: #1f2937;
+}
+
+/* ===== Text ===== */
+p {
+  margin-bottom: 16px;
+  color: #374151;
+}
+
+/* ===== Links ===== */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Navigation ===== */
+.nav {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  background: #eef2ff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.nav a:hover {
+  background: #e0e7ff;
+}
+
+/* ===== Lists ===== */
+ul {
+  margin-left: 22px;
+  margin-top: 12px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* ===== Divider ===== */
+hr {
+  margin: 45px 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ===== Table ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+thead {
+  background: #f3f4f6;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ===== Layout with Sidebar ===== */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: sticky;
+  top: 40px;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline li {
+  margin-bottom: 12px;
+}
+
+.timeline a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.timeline a:hover {
+  background: #e5e7eb;
+  transform: translateX(2px);
+}
+
+.timeline a.active {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+/* ===== Skills Section ===== */
+.skills {
+  display: grid;
+  gap: 16px;
+}
+
+.skill {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.progress-bar {
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 8px;
+  margin-top: 6px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  animation: grow 1.2s ease forwards;
+}
+
+/* ===== Progress Animation ===== */
+@keyframes grow {
+  from {
+    width: 0;
+  }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 30px 16px;
+  }
+
+  .container {
+    padding: 35px 25px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+  }
+}
