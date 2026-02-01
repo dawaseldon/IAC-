@@ -6,6 +6,19 @@
   <link rel="stylesheet" href="style.css">
   <style>
     html { scroll-behavior: smooth; }
+
+    .media-container {
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+
+    .media-container img,
+    .media-container video {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -23,6 +36,7 @@
       </ul>
       <h3>Sections</h3>
       <ul class="timeline">
+        <li><a href="#demo" class="section-link">Demo</a></li>
         <li><a href="#overview" class="section-link">Overview</a></li>
         <li><a href="#focus" class="section-link">Focus</a></li>
         <li><a href="#tasks" class="section-link">Tasks</a></li>
@@ -37,21 +51,63 @@
       <header>
         <h1>Week 2: 19/01/2026 – 25/01/2026</h1>
         <p>
-          [Insert brief description for Week 2 here.]
+          This week focused on building a fully functional locally hosted Grade 10 History RAG chatbot 
+          using Ollama, ChromaDB, and Streamlit. The goal was to integrate embeddings, vector search, 
+          and structured prompting into a working AI system.
         </p>
         <div class="nav">
           <a href="index.html">← Home</a>
         </div>
       </header>
 
+      <hr>
+
+      <!-- ===== Demo Section ===== -->
+      <section id="demo">
+        <h2>Project Demonstration</h2>
+
+        <p>
+          The chatbot was hosted locally using a remote GPU desktop connected through Ngrok. 
+          Ollama was used to run LLaMA 3.1 (8B) for generation and nomic-embed-text for embeddings. 
+          ChromaDB handled vector storage, and Streamlit provided the user interface.
+        </p>
+
+        <h3>Screenshot – Locally Hosted Chatbot</h3>
+        <div class="media-container">
+          <img src="images/week2_chatbot_screenshot.png"
+               alt="Locally Hosted Grade 10 History Chatbot">
+          <p><em>Figure 1: Chatbot running locally using Ollama and Streamlit.</em></p>
+        </div>
+
+        <h3>Video Demonstration</h3>
+        <div class="media-container">
+          <video controls>
+            <source src="videos/week2_chatbot_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p><em>Video 1: Demonstration of the chatbot answering textbook-based queries using RAG.</em></p>
+        </div>
+
+      </section>
+
+      <hr>
+
       <section id="overview">
         <h2>Overview of Week 2</h2>
-        <p>[Insert content for overview]</p>
+        <p>
+          During Week 2, I transitioned from understanding LLM concepts to implementing a real Retrieval-Augmented Generation (RAG) system. 
+          I built a chatbot that extracts text from a Grade 10 Bhutan History PDF, converts it into embeddings, 
+          stores it in a vector database, and retrieves relevant context for answering user questions.
+        </p>
       </section>
 
       <section id="focus">
         <h2>Focus of the Week</h2>
-        <p>[Insert content for focus]</p>
+        <p>
+          The primary focus was building a locally running AI system with proper architecture:
+          PDF → Chunking → Embeddings → ChromaDB → Context Retrieval → Prompt Engineering → LLM Response.
+          I also focused on debugging embedding errors, improving prompt structure, and implementing conversation memory.
+        </p>
       </section>
 
       <hr>
@@ -59,41 +115,35 @@
       <section id="tasks">
         <h2>Tasks Completed</h2>
         <ul>
-          <li>[Task 1]</li>
-          <li>[Task 2]</li>
-          <li>[Task 3]</li>
+          <li>Built a Retrieval-Augmented Generation (RAG) pipeline from scratch.</li>
+          <li>Implemented PDF text extraction and chunking using PyMuPDF.</li>
+          <li>Integrated nomic-embed-text embedding model via Ollama.</li>
+          <li>Stored embeddings in ChromaDB vector database.</li>
+          <li>Created structured prompt engineering system for exam-ready answers.</li>
+          <li>Implemented conversation memory in chatbot logic.</li>
+          <li>Connected remote GPU desktop using Ngrok.</li>
+          <li>Designed Streamlit-based interactive chatbot UI.</li>
+          <li>Completed a DataCamp short course on AI fundamentals and model workflows.</li>
         </ul>
       </section>
+
 
       <hr>
 
       <section id="skills">
         <h2>Skills Learned / Developed</h2>
         <ul>
-          <li>[Skill 1]</li>
-          <li>[Skill 2]</li>
-          <li>[Skill 3]</li>
+          <li>Retrieval-Augmented Generation (RAG) architecture</li>
+          <li>Vector embeddings and similarity search</li>
+          <li>ChromaDB database integration</li>
+          <li>Prompt engineering for structured academic responses</li>
+          <li>LLM hosting using Ollama</li>
+          <li>Remote GPU deployment using Ngrok</li>
+          <li>Frontend development using Streamlit</li>
+          <li>AI workflow concepts from DataCamp course</li>
         </ul>
       </section>
 
-      <hr>
-
-      <section id="skill-progress">
-        <h2>Skill Progress (Week 2)</h2>
-        <div class="skills">
-          <div>
-            <div class="skill">
-              <span>Skill Name</span>
-              <span>Level</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr>
 
       <section id="challenges">
         <h2>Challenges / Solutions</h2>
@@ -106,27 +156,60 @@
           </thead>
           <tbody>
             <tr>
-              <td>[Challenge 1]</td>
-              <td>[Solution]</td>
+              <td>Embedding model not found (404 error)</td>
+              <td>Learned to pull models properly using Ollama before calling embeddings.</td>
+            </tr>
+            <tr>
+              <td>Irrelevant answers despite RAG</td>
+              <td>Improved prompt structure and restricted responses strictly to context.</td>
+            </tr>
+            <tr>
+              <td>Chatbot not understanding "elaborate" or "summarize"</td>
+              <td>Added explicit conditional logic in the chatbot class for command detection.</td>
+            </tr>
+            <tr>
+              <td>No memory between messages</td>
+              <td>Implemented conversation history storage in Streamlit session state.</td>
             </tr>
           </tbody>
         </table>
       </section>
+
+            <hr>
+
+      <!-- ===== Source Code Section ===== -->
+      <section id="code">
+        <h2>Source Code</h2>
+
+        <p>
+          The complete implementation of the chatbot (RAG pipeline, embedding logic,
+          Streamlit UI, and memory handling) is available in the Python file below.
+        </p>
+
+        <a href="app.py" class="code-link" target="_blank">
+          📂 View Week 2 Chatbot Source Code (app.py)
+        </a>
+
+      </section>
+
+      <hr>
 
       <hr>
 
       <section id="reflection">
         <h2>Reflection / Notes</h2>
         <ul>
-          <li>[Reflection point 1]</li>
-          <li>[Reflection point 2]</li>
+          <li>This week shifted me from theory to real AI system engineering.</li>
+          <li>I understood that LLM performance depends heavily on retrieval quality and prompt design.</li>
+          <li>Debugging errors strengthened my understanding of model pipelines.</li>
+          <li>Hosting locally gave me deeper insight into deployment and system architecture.</li>
         </ul>
       </section>
 
       <div class="nav">
         <a href="index.html">← Home</a>
-        <a href="week_2.html">← Previous</a>
-        <a href="week_4.html">Next →</a>
+        <a href="week_1.html">← Previous</a>
+        <a href="week_3.html">Next →</a>
       </div>
 
       <footer>
@@ -137,19 +220,13 @@
   </div>
 
   <script>
-    const sections = document.querySelectorAll("section");
-    const sectionLinks = document.querySelectorAll(".section-link");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 60;
-        if (pageYOffset >= sectionTop) current = section.getAttribute("id");
-      });
-      sectionLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
-      });
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.timeline a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     });
   </script>
 

@@ -23,9 +23,11 @@
     <!-- ===== Main Content ===== -->
     <main>
       <header>
-        <h1>Week 3: DD/MM/YYYY – DD/MM/YYYY</h1>
+        <h1>Week 3: 26/01/2026 – 01/02/2026</h1>
         <p>
-          Brief summary of Week 3’s focus, experiments, and learning objectives.
+          Week 3 focused on improving the chatbot system built in Week 2. 
+          I worked on refining retrieval accuracy, improving memory handling, 
+          enhancing prompt engineering, and strengthening overall system reliability.
         </p>
         <div class="nav">
           <a href="index.html">← Home</a>
@@ -34,14 +36,31 @@
 
       <section>
         <h2>Overview of Week 3</h2>
-        <p>General overview of Week 3 tasks and outcomes.</p>
+        <p>
+          After building a functional RAG-based Grade 10 History chatbot in Week 2, 
+          Week 3 was dedicated to optimization and refinement. The focus shifted from 
+          “making it work” to “making it work well.”
+        </p>
+        <p>
+          I analyzed inconsistencies in generated responses, improved context filtering, 
+          fixed command recognition issues (such as “elaborate” and “summarize”), and 
+          implemented a more structured memory mechanism to maintain conversation continuity.
+        </p>
       </section>
 
       <section>
         <h2>Focus of the Week</h2>
         <p>
-          Explain Week 3 main focus: conceptual learning, technical experiments, or skill development.
+          The main focus was system improvement and architectural thinking. 
+          Instead of adding new features immediately, I concentrated on:
         </p>
+        <ul>
+          <li>Improving retrieval precision from ChromaDB</li>
+          <li>Reducing irrelevant or hallucinated answers</li>
+          <li>Making command-based inputs function correctly</li>
+          <li>Implementing better session-based memory</li>
+          <li>Enhancing UI clarity and user experience</li>
+        </ul>
       </section>
 
       <hr>
@@ -49,41 +68,16 @@
       <section>
         <h2>Tasks Completed</h2>
         <ul>
-          <li>Task 1 description</li>
-          <li>Task 2 description</li>
-          <li>Task 3 description</li>
+          <li>Refactored chatbot class structure for cleaner logic.</li>
+          <li>Improved context filtering to avoid repeated chunk usage.</li>
+          <li>Implemented explicit conditional logic for commands like “elaborate on”, “summarize”, and exam preparation prompts.</li>
+          <li>Strengthened session state handling to maintain conversation memory.</li>
+          <li>Optimized prompt structure to ensure exam-ready, structured responses.</li>
+          <li>Improved Streamlit UI layout and message rendering.</li>
+          <li>Debugged embedding and model connection errors during remote GPU usage.</li>
+          <li>Analyzed system pipeline for future extension toward a Dzongkha-focused LLM.</li>
         </ul>
       </section>
-
-      <hr>
-
-      <section>
-        <h2>Skills Learned / Developed</h2>
-        <ul>
-          <li>Skill 1 description</li>
-          <li>Skill 2 description</li>
-          <li>Skill 3 description</li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <section>
-        <h2>Skill Progress (Week 3)</h2>
-        <div class="skills">
-          <div>
-            <div class="skill">
-              <span>Skill Name</span>
-              <span>Beginner/Intermediate/Advanced</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress" style="width: 50%;"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr>
 
       <section>
         <h2>Challenges / Solutions</h2>
@@ -96,8 +90,24 @@
           </thead>
           <tbody>
             <tr>
-              <td>Challenge 1</td>
-              <td>Solution 1</td>
+              <td>Chatbot not recognizing “elaborate” or “summarize” correctly</td>
+              <td>Added structured conditional checks and separated logic for command-based prompts.</td>
+            </tr>
+            <tr>
+              <td>Irrelevant context being reused repeatedly</td>
+              <td>Implemented filtering mechanism to track used contexts and prioritize fresh chunks.</td>
+            </tr>
+            <tr>
+              <td>Hallucinated answers beyond textbook context</td>
+              <td>Strengthened system prompt to strictly restrict answers to retrieved context.</td>
+            </tr>
+            <tr>
+              <td>Session memory inconsistencies</td>
+              <td>Refined Streamlit session state handling to maintain conversation continuity.</td>
+            </tr>
+            <tr>
+              <td>Remote GPU connection instability</td>
+              <td>Improved understanding of Ngrok tunneling and ensured model availability before execution.</td>
             </tr>
           </tbody>
         </table>
@@ -108,9 +118,11 @@
       <section>
         <h2>Reflection / Notes</h2>
         <ul>
-          <li>Reflection point 1</li>
-          <li>Reflection point 2</li>
-          <li>Reflection point 3</li>
+          <li>This week taught me that building an AI system is not just about coding — it requires architectural thinking.</li>
+          <li>I realized retrieval quality and prompt clarity directly affect model reliability.</li>
+          <li>Debugging strengthened my understanding of how LLM pipelines actually function.</li>
+          <li>System refinement felt more challenging than initial implementation.</li>
+          <li>This phase laid foundational thinking for developing a future Dzongkha-focused language model.</li>
         </ul>
       </section>
 
