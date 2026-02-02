@@ -269,3 +269,16 @@ tbody tr {
   font-size: 0.95rem;
   color: #374151;
 }
+
+.media-container {
+  max-width: 900px;     /* controls overall size */
+  margin: 30px auto;    /* centers the video */
+  text-align: center;
+}
+
+.media-container video {
+  width: 100%;          /* makes video responsive */
+  height: auto;         /* keeps correct ratio */
+  border-radius: 12px;  /* optional – cleaner look */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* optional */
+}

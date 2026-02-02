@@ -168,13 +168,30 @@ def send_message():
 
       <hr>
 
-      <h3>Video Demonstration</h3>
-        <div class="media-container">
-          <video controls>
-            <source src="week_3_uploads/test2.mp4" type="video/mp4">
-          </video>
-          <p><em>After refining the system step by step, this was the final test I performed to ensure everything was functioning smoothly and as intended.</em></p>
-        </div>
+<h3>Video Demonstration</h3>
+
+<style>
+.media-container {
+  max-width: 750px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.media-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+<div class="media-container">
+  <video controls>
+    <source src="week_3_uploads/test2.mp4" type="video/mp4">
+  </video>
+  <p><em>After refining the system step by step, this was the final test I performed to ensure everything was functioning smoothly and as intended.</em></p>
+</div>
+
 
       <!-- Reflection -->
       <section>
