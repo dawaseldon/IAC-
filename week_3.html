@@ -15,7 +15,7 @@
       <ul class="timeline">
         <li><a href="week_1.html">Week 1</a></li>
         <li><a href="week_2.html">Week 2</a></li>
-        <li><a href="week_3.html">Week 3</a></li>
+        <li><a href="week_3.html" class="active">Week 3</a></li>
         <li><a href="week_4.html">Week 4</a></li>
       </ul>
     </aside>
@@ -25,61 +25,65 @@
       <header>
         <h1>Week 3: 26/01/2026 – 01/02/2026</h1>
         <p>
-          Week 3 focused on improving the chatbot system built in Week 2. 
-          I worked on refining retrieval accuracy, improving memory handling, 
-          enhancing prompt engineering, and strengthening overall system reliability.
+          This week I focused on improving the chatbot system I built in Week 2. 
+          My main goal was to fix the problems I faced before, especially the memory issues, 
+          command recognition, and retrieval accuracy.
         </p>
         <div class="nav">
           <a href="index.html">← Home</a>
         </div>
       </header>
 
+      <!-- Overview -->
       <section>
         <h2>Overview of Week 3</h2>
         <p>
-          After building a functional RAG-based Grade 10 History chatbot in Week 2, 
-          Week 3 was dedicated to optimization and refinement. The focus shifted from 
-          “making it work” to “making it work well.”
+          After getting a basic Grade 10 History RAG chatbot running in Week 2, Week 3 was all about making it actually useful. 
+          I worked on fixing the things that didn’t work properly before. The chatbot now remembers previous conversations, 
+          understands commands like “elaborate” or “summarize”, and avoids giving irrelevant answers. 
         </p>
         <p>
-          I analyzed inconsistencies in generated responses, improved context filtering, 
-          fixed command recognition issues (such as “elaborate” and “summarize”), and 
-          implemented a more structured memory mechanism to maintain conversation continuity.
+          I spent most of the week testing the chatbot with multiple questions, analyzing where it failed, 
+          and then carefully adjusting the code, session handling, and prompts. This week felt more like improving 
+          the system step by step rather than just coding, and it gave me a much better understanding of how LLM pipelines work.
         </p>
       </section>
 
+      <!-- Focus -->
       <section>
         <h2>Focus of the Week</h2>
         <p>
-          The main focus was system improvement and architectural thinking. 
-          Instead of adding new features immediately, I concentrated on:
+          I concentrated on system improvement and making the chatbot more reliable:
         </p>
         <ul>
-          <li>Improving retrieval precision from ChromaDB</li>
-          <li>Reducing irrelevant or hallucinated answers</li>
-          <li>Making command-based inputs function correctly</li>
-          <li>Implementing better session-based memory</li>
-          <li>Enhancing UI clarity and user experience</li>
+          <li>Fixing memory issues between messages</li>
+          <li>Ensuring commands like “summarize” or “elaborate” work</li>
+          <li>Reducing irrelevant answers</li>
+          <li>Making the retrieval from ChromaDB more accurate</li>
+          <li>Improving the overall user experience</li>
         </ul>
       </section>
 
       <hr>
 
+      <!-- Tasks Completed -->
       <section>
         <h2>Tasks Completed</h2>
         <ul>
-          <li>Refactored chatbot class structure for cleaner logic.</li>
-          <li>Improved context filtering to avoid repeated chunk usage.</li>
-          <li>Implemented explicit conditional logic for commands like “elaborate on”, “summarize”, and exam preparation prompts.</li>
-          <li>Strengthened session state handling to maintain conversation memory.</li>
-          <li>Optimized prompt structure to ensure exam-ready, structured responses.</li>
-          <li>Improved Streamlit UI layout and message rendering.</li>
-          <li>Debugged embedding and model connection errors during remote GPU usage.</li>
-          <li>Analyzed system pipeline for future extension toward a Dzongkha-focused LLM.</li>
+          <li>Analyzed all the errors and inconsistencies from Week 2.</li>
+          <li>Refactored the chatbot class for cleaner logic.</li>
+          <li>Added proper handling of commands like “elaborate” and “summarize”.</li>
+          <li>Implemented session-based memory system to remember conversation history.</li>
+          <li>Filtered repeated or irrelevant context chunks from ChromaDB retrieval.</li>
+          <li>Tested Ngrok remote GPU connection for model stability.</li>
+          <li>Optimized prompt engineering for board-exam style answers.</li>
         </ul>
       </section>
 
-      <section>
+      <hr>
+
+      <!-- Challenges / Solutions -->
+      <section id="challenges">
         <h2>Challenges / Solutions</h2>
         <table>
           <thead>
@@ -90,24 +94,24 @@
           </thead>
           <tbody>
             <tr>
-              <td>Chatbot not recognizing “elaborate” or “summarize” correctly</td>
-              <td>Added structured conditional checks and separated logic for command-based prompts.</td>
+              <td>Embedding model not found (404 error)</td>
+              <td>Learned to properly pull models using Ollama before calling embeddings; ensured the model is loaded on the remote GPU via Ngrok before starting the chatbot.</td>
             </tr>
             <tr>
-              <td>Irrelevant context being reused repeatedly</td>
-              <td>Implemented filtering mechanism to track used contexts and prioritize fresh chunks.</td>
+              <td>Irrelevant answers despite RAG</td>
+              <td>Improved the prompt structure and system instructions; restricted responses strictly to retrieved context.</td>
             </tr>
             <tr>
-              <td>Hallucinated answers beyond textbook context</td>
-              <td>Strengthened system prompt to strictly restrict answers to retrieved context.</td>
+              <td>Chatbot not understanding "elaborate" or "summarize"</td>
+              <td>Added explicit conditional logic in the chatbot class to detect commands and apply the correct prompt style.</td>
             </tr>
             <tr>
-              <td>Session memory inconsistencies</td>
-              <td>Refined Streamlit session state handling to maintain conversation continuity.</td>
+              <td>No memory between messages</td>
+              <td>Implemented a session-based memory system in Streamlit using <code>st.session_state.conversation</code> to store and pass full conversation history to the chatbot, ensuring continuity across multiple messages.</td>
             </tr>
             <tr>
-              <td>Remote GPU connection instability</td>
-              <td>Improved understanding of Ngrok tunneling and ensured model availability before execution.</td>
+              <td>Remote GPU instability via Ngrok</td>
+              <td>Learned to manage remote connection timing, check model availability, and persist local session memory to reduce impact of temporary disconnects.</td>
             </tr>
           </tbody>
         </table>
@@ -115,14 +119,72 @@
 
       <hr>
 
+      <!-- Memory System Code -->
+      <section id="memory-system">
+        <h2>Memory System Implementation</h2>
+        <p>This is the code I used to make the chatbot remember previous messages:</p>
+
+<pre>
+# Initialize session memory
+if "conversation" not in st.session_state:
+    st.session_state.conversation = []
+
+# Initialize chatbot instance
+if "bot" not in st.session_state:
+    st.session_state.bot = PDFChatBot(collection, client)
+
+# Sending a message
+def send_message():
+    user_input = st.session_state.user_input.strip()
+    if user_input:
+        # Bot processes the user input along with conversation history
+        answer = st.session_state.bot.ask(
+            user_input,
+            st.session_state.conversation
+        )
+
+        # Append both user input and bot response to session state
+        st.session_state.conversation.append(
+            {"role": "user", "content": user_input}
+        )
+        st.session_state.conversation.append(
+            {"role": "assistant", "content": answer}
+        )
+
+        st.session_state.user_input = ""
+</pre>
+
+        <p><strong>Explanation:</strong> This code keeps a running list of all messages between the user and the chatbot in <code>st.session_state.conversation</code>. When a new question is asked, the full conversation history is sent to the chatbot, which allows it to respond in context. This solved the Week 2 problem of the chatbot forgetting previous messages, and also made commands like "elaborate" and "summarize" work properly even in multi-turn conversations.</p>
+      </section>
+
+      <hr>
+
+      <!-- Code Link -->
+      <section id="code-link">
+        <h2>Code Reference</h2>
+        <p>You can view the full code I used to build and improve the chatbot here (This is the latest code):</p>
+        <p><a href="app2.py" target="_blank">app.py</a></p>
+      </section>
+
+      <hr>
+
+      <h3>Video Demonstration</h3>
+        <div class="media-container">
+          <video controls>
+            <source src="week_3_uploads/test2.mp4" type="video/mp4">
+          </video>
+          <p><em>After refining the system step by step, this was the final test I performed to ensure everything was functioning smoothly and as intended.</em></p>
+        </div>
+
+      <!-- Reflection -->
       <section>
         <h2>Reflection / Notes</h2>
         <ul>
-          <li>This week taught me that building an AI system is not just about coding — it requires architectural thinking.</li>
-          <li>I realized retrieval quality and prompt clarity directly affect model reliability.</li>
-          <li>Debugging strengthened my understanding of how LLM pipelines actually function.</li>
-          <li>System refinement felt more challenging than initial implementation.</li>
-          <li>This phase laid foundational thinking for developing a future Dzongkha-focused language model.</li>
+          <li>This week taught me that improving an AI system is more about careful refinement than just coding.</li>
+          <li>Implementing memory helped the chatbot feel much smarter and more reliable.</li>
+          <li>Debugging remote GPU issues improved my understanding of model deployment via Ngrok.</li>
+          <li>Working with context filtering and prompt engineering showed me the importance of structure in LLM responses.</li>
+          <li>This week prepared me for the next step: thinking about building a Dzongkha-focused language model.</li>
         </ul>
       </section>
 
