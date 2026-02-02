@@ -93,21 +93,25 @@ class PDFChatBot:
 
         # ---- Style Commands ----
         if lower_q.startswith("elaborate on"):
-            style_prompt = "Elaborate in detailed structured paragraphs with examples."
+            style_prompt = "Elaborate ONLY using the provided context in detailed structured paragraphs with examples."
         elif "summarize" in lower_q:
-            style_prompt = "Summarize clearly and concisely."
+            style_prompt = "Summarize ONLY using the provided context clearly and concisely."
         elif "prepare 5 exam questions" in lower_q:
-            style_prompt = "Generate 5 board-exam style questions with structured answers."
+            style_prompt = "Generate 5 board-exam style questions ONLY using the provided context, with structured answers."
         else:
-            style_prompt = "Answer clearly in structured paragraphs suitable for board exams."
+            style_prompt = "Answer ONLY using the provided context in structured paragraphs suitable for board exams."
 
         context = self.retrieve_context(question)
 
+        # Strict system prompt
         system_prompt = (
-            "You are an academic assistant for Grade 10 Bhutan History. "
-            "Answer ONLY using the provided context. "
-            "Do NOT mention sources or chunks. "
-            "If missing, say: 'I don't know.'"
+            "You are an academic assistant for Grade 10 Bhutan History.\n\n"
+            "STRICT RULES:\n"
+            "1. Answer ONLY using the provided context. Do NOT use any outside knowledge.\n"
+            "2. If the context does not contain the answer, respond exactly with: 'I don't know.'\n"
+            "3. Never invent information, make guesses, or assume anything.\n"
+            "4. Do NOT mention the word 'context', 'document', or 'chunk' in your answer.\n"
+            "5. Keep your answer structured, precise, and suitable for board exams.\n"
         )
 
         messages = [{"role": "system", "content": system_prompt}]
